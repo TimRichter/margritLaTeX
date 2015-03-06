@@ -1,0 +1,62 @@
+Die M\"oglichkeiten der theoretischen Informatik werden meiner Meinung nach oft nicht richtig wahrgenommen. Die Lehre der Automatentheorie geh\"ort zu den Grundlagenveranstaltungen im Informatikstudium. Wie ich in meiner Zeit als Tutorin feststellen musste, haben immer wieder viele Studierende Probleme mit der mathematischen Darstellung und den Beweisenverfahren. Die angestrebte Formalisierung soll den Studierenden die M\"oglichkeit bieten, die Theorie aus einem anderen Blickwinkel zu betrachten.
+
+\section{Was ist das Ziel der Arbeit?}
+
+Das Ziel dieser Arbeit ist die Darstellung eines Teilgebietes der Automatentheorie und einigen dazugeh\"origen Verfahren mit Hilfe von den Sytemen NuPRL, Coq oder Idris. Es werden nur deterministische und nicht-deterministische endliche Automaten betrachtet. Die zu ber\"ucksichtigen Verfahren sind:
+
+\begin{itemize}
+ \item DEA/NEA
+ \item regul\"are Ausdr\"ucke
+ \item regul\"aren Ausdr\"ucken $\Leftrightarrow$ endliche Automaten
+ \item deterministische Automaten $\Leftrightarrow$ nicht-deterministische Automaten
+ \item Pumping Lemma f\"ur regul\"are Sprachen
+ \item Satz von Myhill-Nerode
+\end{itemize}
+
+Wichtige Aspekte bei der Modellierung sind Lesbarkeit und Erweiterbarkeit auf andere Automatenmodelle. Eine M\"oglichkeit w\"are eine vergleichende Betrachtungsweise zwischen den einzelnen Systemen und deren Formalisierungen von Automaten. Hierbei ist die Anzahl der umsetzbaren Verfahren eher begrenzt. Die andere, wahrscheinliche Vorgehensweise w\"are sich eines der Systeme auszuw\"ahlen um so viele Verfahren wie m\"oglich umzusetzen.
+
+\section{Wie sollen das Ziel erreicht werden?}
+Zur Erreichung des Ziels muss ein Formalismus zur Darstellung der Automaten und der Verfahren entwickelt werden. 
+\begin{itemize}
+ \item Analyse der Ans\"atze f\"ur Coq und NuPRL
+ \item Modellierung der Automaten im jeweiligen System
+ \item Modellierung regul\"arer Ausdr\"ucke
+ \item Formalismen entwickeln zur Umsetzung der Verfahren
+ \begin{itemize}
+  \item regul\"aren Ausdr\"ucken $\Leftrightarrow$ endliche Automaten
+  \item deterministische Automaten $\Leftrightarrow$ nicht-deterministische Automaten
+  \item Pumping Lemma f\"ur regul\"are Sprachen
+  \item Satz von Myhill-Nerode
+ \end{itemize}
+\end{itemize}
+Um sp\"atere Grundlegende Probleme zu vermeiden, sollten schon bei der Darstellung der Automaten die umzusetzenden Verfahren ber\"ucksichtigt werden.
+
+\section{Zeitliche Ablaufplanung}
+Die effektive Arbeitszeit betr\"agt ca. 24h pro Woche. Für die beiden Varianten ist eine unterschiedliche Zeitplanung zu ber\"ucksichtigen. Die Entscheidung, ob es eine vergleichende Arbeit wird, oder die Verfahren nur in einem System beschrieben werden, soll Anfang KW 11 fallen. In diesem Zeitraum werden gleichzeitig die Grundlagen der Automatentheorie, der Verfahren, der regul\"aren Sprachen wiederholt und die wichtigen Punkte herausgearbeitet. Dies sollte nicht mehr als 2 Tage in Anspruch nehmen.
+\begin{enumerate}
+ \item zur Vorbereitung, Einarbeitung in:
+ \begin{itemize}
+  \item Coq bereits teilweise geschehen
+  \item NuPRL (KW 7+8)
+  \item Idris (KW 9+10)
+ \end{itemize}
+ \item Variante 1: vergleichende Arbeit
+ \begin{itemize}
+  \item Automaten (DEA/NEA) in den Systemen implementieren (KW 11-18)
+  \item regul\"are Ausdr\"ucke (KW 19+20)
+  \item regul\"are Ausdr\"ucken $\Leftrightarrow$ endliche Automaten (KW 21-23)
+  \item deterministische Automaten $\Leftrightarrow$ nicht-deterministische Automaten (KW 23-25)
+  \item Die weiteren Punkte werden Aufgrund der Komplexit\"at nicht ber\"ucksichtigt.
+ \end{itemize}
+ \item Variante 2: beschreibende Arbeit
+ \begin{itemize}
+  \item Implementierung der Automaten (KW 11-14)
+  \item Umsetzung und Test aller unter 1. beschrieben Punkte (ca 2 Wochen pro Punkt), wobei die Automatenmodellierung wahrscheinlich angepasst werden muss. Der Schwerpunkt liegt auf der lesbaren Implementierung des Pumping Lemmas f\"ur regul\"are Sprachen.
+ \end{itemize}
+ \item Fertigstellung
+ \begin{itemize}
+  \item Fertigstellung der jeweiligen Implementierung (KW 25)
+  \item schriftliche Ausarbeitung \"uber den ganzen Zeitraum und \"Uberarbeitung (KW 26-30)
+  \item Endkontrolle und Druck (KW 30+31)
+ \end{itemize}
+\end{enumerate}

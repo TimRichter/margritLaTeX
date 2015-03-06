@@ -1,0 +1,26 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+%opening
+\title{}
+\author{Margrit Dittmann}
+
+\begin{document}
+
+\maketitle
+
+%\begin{abstract}
+
+%\end{abstract}
+
+\input{Konzept.tex}
+
+%\input{Einleitung.tex}
+%\input{Systementscheidung.tex}
+%\input{Aequivalenz.tex}
+%\input{regSprachen_DEA.tex}
+%\input{DEA_NEA.tex}
+%\input{Pumping_Lemma.tex}
+%\input{Myhill_Nerode.tex}
+%\input{Zusammenfassung.tex}
+\end{document}
