@@ -1,0 +1,90 @@
+Die zur Auswahl stehenden Systeme sind NuPRL, Coq und Idris, wobei die ersten beiden auf ML basieren und Idris auf Haskell. In NuPRL und Coq gibt es bereits erste Realisierungen von Automaten.
+\section{NuPRL}
+Kreitz 1986
+- Basiselemente: Types und Members of Types
+- Types sind in Universen angeordnet$U_1\subseteq U_2\subseteq U_3$
+- atomare Typen: int, atom, void (Typ ohne Members)
+-- A list $\Rightarrow$ Liste von Elementen von A
+-- A\#B $\Rightarrow$ kartesisches Produkt
+-- A$\vert$ B $\Rightarrow$ disjunkte Vereinigung
+-- A$\rightarrow$B $\Rightarrow$ Funktion von A nach B
+- Funktionale Objektsprache
+- Top-Down Verfahren
+- automata Bibliothek beinhaltet eine Reihe von Taktiken
+Kreitz 2000
+- User Interface
+- interaktive und Taktiken (meta-level code) basierte Argumentation
+- automatische Tools: Entscheidungsprozeduren, Theorembeweiser, Beweisplaner, Modelchecker, Rewrite Enginges
+- erweiterbare Bibliothek
+- \begin{quotation}
+   The Nuprl LPE (logical programming environment) is an open , distributed architecture that integrates all its key subsystems as independent components and, by using a flexible knowledge base as its central component, supports the interoperability of current proof technology.
+  \end{quotation}
+- verschiedene Nutzer k\"onnen parallel durch verschiedene Editoren am gleichen Problem arbeiten
+- Struktur:
+-- Wissensbasis:
+** \"Anderungen werden umgehend in die Bibliothek \"uertragen, dadurch gehen im Falls eines Systemausfalls keine Daten verloren
+** bei \"Anderungen an Objekten werden die objekte nicht \"uberschrieben sondern es werden neue Versionen davon erstellt
+** folgt den gleichen Protokollen wie Datenbanken
+** \"altere Versionen von Objekten k\"onnen wieder hergestellt werden und so kann man auch mehrere Beweis eines Theorems erstellen
+** unterst\"utzt dependency tracking
+** Bibliothek schreibt keine vordefinierte Struktur (externe Repr\"asentation) vor. Die sichtbare Struktur wird durch Strukturobjekte generalisiert, die explizit in der Bibliothek angegeben sind.
+** Aus dem gleichen Grund gibt es bei Namen eine Unterteilung in Namen, die der Nutzer vergibt und die das System vergibt. Daher k\"onnen verschiedene Objekte auch ohne Probleme gleich benannt werden.
+-- Benutzeroberfl\"ache
+** Kommunikation mit der Wissensbasis durch senden und empfangen von abstrakten Termen
+** Funktionalit\"at eines Struktureditors
+** ist imstande Objekte als Kommandos zu interpretieren
+** Nutzer kann Definitionen von logischen Ausdr\"ucken und Taktiken rekonstruieren oder den Editor anpassen mit Buttons f\"ur oft benutzte Befehle
+-- Inferenz Maschine
+** Beweise werden gepr\"uft durch die Ausf\"uhrung von ML Code
+** gradlinig
+--> k\"onnte mit den ganzen verschiedenen Displayoptionen zu un\"ubersichtlich werden
+--> Code nicht unbedingt intuitiv lesbar
+--> bietet viele Schnittstellen, jedoch f\"ur Einsteiger in meinen Augen zu komplex
+--> System l\"auft nur \"uber eine virtuelle Maschine und es ist keine lauff\"ahige Version ohne Probleme zu bekommen
+
+\section{Coq}
+- basiert auf abh\"angige Typentheorie
+- L\"auft auf allen Betriebssystem
+- \"ubersichtliche Coqide und viele Turotials zur Installation und Anwendung online verf\"ugbar
+- aktive Community unter anderem in Form einer Mailing Liste
+
+\section{Idris}
+Bei Idris gab es bei der Installation unter Ubuntu keine Probleme, jedoch unter MacOS 10.6.8. Hierbei m\"ussen Pakete teilweise einzelen installiert werden, wobei allerdings die ben\"otigten Abh\"angigkeiten nicht mehr gew\"ahrleistet werden k\"onnen.
+%idris tutorial
+- ausf\"uhrbarer Code wird generiert
+- funktionales Interface wechles die Interaktion mit einer externen C Bibliothek erm\"oglicht
+- auf Haskell Basis
+- Datentypen \"ahnlich wie in Haskell
+- Funktionen werden durch Pattern Matching implementiert
+** Name : Type -> Type -> Type
+** Name Pattern
+** Name Var=Funktionsbeschreibung
+-- Funktionsnamen k\"onnen sowohl mit Gro\ss{}-, als auch mit Kleinbuchstaben beginnen
+- Umgang mit Zahlen als Eingabe genauso als Typ von Nat
+- Vektoren als abh\"angige Typen (vom Typ Liste mit L\"ange) % Data.Vect
+- verst\"andliche Fehlermeldungen
+- endliche Mengen %Data.Fin Seite 12/13
+- Umgang mit Dateien als Eingabe m\"glich (lesen/schreiben...) %Seite 15/16
+- Einr\"uckung muss beachtet werden % do-Notation Seite 16
+- anonyme Funktionen ($\backslash$x => val) % x als Argument und val als R\"uckgabe, wobei mehere Argumente bei der Eingabe durch Kommata getrennt werden
+- Maybe um optionale Werte zu beschreiben
+- Sigma Types als anh\"angige Paare (2. Element vom Paar h\"angt vom 1. Element ab)
+- \_ als Platzhalter
+- Type Classes um typ\"uebrgreifende Funktionen zu definieren %geht dann \"uber Instanzen (Seite 24)
+- Namen k\"onnen in verschiedenen Modulen mehrfach verwendet werden, da diese modulspezifisch sind
+- import referenziert Dateinamen und durch einen Punkt k\"onnen Pfade angegeben werden % import foo.a importiert Datei foo/a.idr, welches das Modul foo.a beinhaltet, die einzige Vorraussetzung ist im Main Modul die main Funktion, die auch genau so hei\ss{}en muss (Seite 34)
+- Vererbung: Module k\"onnen andere Module verwenden, je nach Definition (abstract, public, private)
+** public: Name und Definition werden exportiert
+** abstract: Name wird exportiert
+** private: weder Name noch Definition werden exportiert % geht nicht wenn \"uberhaupt irgendwas exportiert werden soll
+- Parameter als separate Bl\"ocke, die auch abh\"angige Typen mit impliziten Argumenten sein k\"onnen
+- Mischung aus Coq und Agda da sowohl interaktives Beweisen als auch Taktiken verwendet werden k\"onnen %Wikipedia
+
+
+\section{Entscheidung}
+Bei Coq und NuPRL handelt es sich um interaktive Beweissysteme auf Basis vom ML. Idris ist an der Haskell Syntax angelehnt. In allen drei Systemen stehen Taktiken zur Beweisf\"uhrung und zur Verbesserung der Lesbarkeit zur Verf\"ugung.
+
+Ein wichtiger Aspekt f\"ur die sp\"atere Anwendung ist eine einfache Installation des zugrundeliegenden Systems unabh\"agig vom Betriebssystem. Dies ist sowohl bei Coq, als auch bei Idris gegeben. Da NuRPL nur \"uber eine virtuelle Maschine l\"auft und keine Installationsinformationen online zu finden sind, klammere ich NuPRL aus meinen weiteren Betrachtungen aus.
+
+Coq und Idris sind zwei Systeme, die im Moment von zwei aktiven Communities weiterentwickelt werden. Im Gegensatz dazu kam bei NuPRL das letzte Release, NuPRL 5, 2000 raus. 
+
