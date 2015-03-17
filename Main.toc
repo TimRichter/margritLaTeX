@@ -1,0 +1,4 @@
+\select@language {german}
+\select@language {german}
+\contentsline {section}{\numberline {1}Entscheidung}{2}
+\contentsline {section}{Literatur}{4}

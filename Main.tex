@@ -1,5 +1,10 @@
 \documentclass[a4paper,10pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[german]{babel}
+\usepackage{graphicx}
+%\usepackage{cite}
+\usepackage{bibgerm}
 
 %opening
 \title{}
@@ -8,6 +13,8 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
+\pagebreak
 
 %\begin{abstract}
 
@@ -25,4 +32,11 @@
 %\input{Didaktik_Anwendungsmoeglichkeiten}
 %\input{Zusammenfassung.tex}
 
+\newpage
+\addcontentsline{toc}{section}{Literatur}
+\bibliography{Literatur.bib}
+\bibliographystyle{geralpha}
+%Zitate dann mit \cite{} machen
+\listoffigures
+\listoftables
 \end{document}
